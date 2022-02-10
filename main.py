@@ -10,7 +10,7 @@ def run(path, quality):
     for address, _, files in os.walk(path):
         for file in files:
             try:
-                if file.split('.')[1].lower() in ['jpg', 'jpeg'] and file[:5] != 'MozJ_':
+                if file.split('.')[-1].lower() in ['jpg', 'jpeg'] and file[:5] != 'MozJ_':
                     click.echo(f'{address}\{file}')
                     subprocess.run(f'Release\cjpeg.exe\
                                 -quality {quality} "{address}\{file}" >\
